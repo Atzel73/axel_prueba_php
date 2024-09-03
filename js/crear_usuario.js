@@ -20,7 +20,6 @@ $(form).submit(function (e) {
         success: function (response) {
             location.reload();
             alert("Usuario creado exitosamente");
-            alert(response);
         },
         error: function (xhr, status, error) {
             console.error(xhr.responseText);

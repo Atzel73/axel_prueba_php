@@ -13,7 +13,6 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios registrados</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 </head>
 
 <body>
@@ -54,30 +53,6 @@ $result = $conn->query($sql);
     </main>
 </body>
 <script src="js/eliminar_usuario.js"></script>
-<script>
-    $(document).ready(function() {
-        $.ajax({
-            url: 'api.php',
-            type: 'GET',
-            succes: function(usuarios) {
-                usuarios.forEach(function(usuario) {
-                    $('#tablaUsuarios').append(
-                        `<tr>
-                        <td>${usuario.id}</td>
-                        <td>${usuario.nombre_usuario}</td>
-                        <td>${usuario.email}</td>
-                         <td>${usuario.genero}</td>
-                        <td>${usuario.creado_en}</td>
-                        <td>
 
-                         <button class='eliminar' data-id='${usuario.id}'>Borrar</button>
-                        </td>
-                    </tr>`
-                    )
-                })
-            }
-        })
-    });
-</script>
 
 </html>
