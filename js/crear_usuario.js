@@ -9,7 +9,7 @@ $(form).submit(function (e) {
 
 
     $.ajax({
-        url: './api.php',
+        url: './script_registrar_usuario.php',
         type: 'POST',
         data: {
             nombre: nombre_usuario,

@@ -18,7 +18,7 @@
         </div>
     </header>
     <main>
-        <form id="loginForm" action="api_inicio_sesion.php" method="POST">
+        <form id="loginForm" action="script_inicio_sesion.php" method="POST">
             <div>
                 <label for="email">Correo Electrónico</label>
                 <input type="text" name="email" id="email">

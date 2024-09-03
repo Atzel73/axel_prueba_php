@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     function cargarUsuarios() {
         $.ajax({
-            url: 'obtener_usuarios.php',
+            url: 'script_obtener_usuarios.php',
             type: 'GET',
             dataType: 'json',
 

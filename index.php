@@ -5,7 +5,7 @@ $sql = "SELECT * FROM usuarios";
 $result = $conn->query($sql);
 session_start();
 if (!isset($_SESSION['login_user'])) {
-    header("location: login.php");
+    header("location: form_login.php");
     exit();
 }
 ?>

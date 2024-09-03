@@ -2,7 +2,7 @@ $(document).on('click', '.eliminar', function () {
     var id = $(this).data('id');
 
     $.ajax({
-        url: 'eliminar_usuario.php',
+        url: 'script_eliminar_usuario.php',
         type: 'DELETE',
         data: {
             id: id
