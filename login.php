@@ -35,36 +35,7 @@
         </form>
     </main>
 
-    <script>
-        $(document).ready(function() {
-            $("#loginForm").submit(function(event) {
-                event.preventDefault();
-
-                var formData = $(this).serialize();
-                console.log("Datos del formulario:", formData);
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    method: "POST",
-                    data: formData,
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log("Respuesta del servidor:", response);
-                        if (response.status === "success") {
-                            window.location.href = "index.php";
-                        } else {
-                            alert(response.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("Error en la solicitud AJAX:", error);
-                        console.log("Respuesta del servidor:", xhr.responseText);
-                        alert("Error al iniciar sesión. Por favor, inténtalo de nuevo.");
-                    }
-                });
-            });
-        });
-    </script>
 </body>
+<script src="js/iniciar_sesion_usuario.js"></script>
 
 </html>
