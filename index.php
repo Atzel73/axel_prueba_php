@@ -40,6 +40,10 @@ $result = $conn->query($sql);
                             <td>{$usuario['email']}</td>
                             <td>{$usuario['genero']}</td>
                             <td>{$usuario['creado_en']}</td>
+                            <td> 
+                             <a href='editar_usuario.php?id=<?php echo {$usuario['id']} ?>'>Editar</a>
+                             <button class='eliminar' data-id='{$usuario['id']}' id='eliminar'>Borrar</button>
+                            </td>
                         </tr>";
                 }
                 ?>
@@ -49,6 +53,7 @@ $result = $conn->query($sql);
 
     </main>
 </body>
+<script src="js/eliminar_usuario.js"></script>
 <script>
     $(document).ready(function() {
         $.ajax({
@@ -63,12 +68,16 @@ $result = $conn->query($sql);
                         <td>${usuario.email}</td>
                          <td>${usuario.genero}</td>
                         <td>${usuario.creado_en}</td>
+                        <td>
+
+                         <button class='eliminar' data-id='${usuario.id}'>Borrar</button>
+                        </td>
                     </tr>`
                     )
                 })
             }
         })
-    })
+    });
 </script>
 
 </html>
