@@ -1,0 +1,110 @@
+@import "variables.scss";
+.form-login {
+  background-image: url("../ElementosSitioiStrategy/FONDO-FORMULARIO.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.body-form-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #233544;
+  margin-top: 100px;
+  margin-right: 75px;
+  margin-left: 75px;
+  box-shadow: inset 0 0 5px #444444;
+}
+
+.header-form-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.div-form-login {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container-form-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-form-login div {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.container-form-login label {
+  margin-bottom: 5px;
+}
+.div-form-inputs {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.div-form-inputs label {
+  font-family: "FontName-Black", sans-serif;
+}
+#loginForm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+input[type="text"],
+input[type="password"] {
+  width: 150%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #2e465b;
+  color: #fff;
+}
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #7e7e7e;
+}
+input[type="checkbox"] {
+  background-color: #233544;
+  width: 15px;
+  height: 15px;
+}
+
+.div-form-submit {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50%;
+  margin-left: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+input[type="submit"] {
+  align-self: center;
+  background-color: #cd3739;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
