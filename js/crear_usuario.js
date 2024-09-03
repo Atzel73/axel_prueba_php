@@ -1,20 +1,30 @@
-const form = document.getElementById('userForm');
+const form = document.getElementById('formUser');
 
 $(form).submit(function (e) {
     e.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    console.log(data);
+    const nombre_usuario = $('#nombre').val();
+    const email = $('#email').val();
+    const genero = $('input[name="genero"]:checked').val();
+    const contrasena = $('#contrasena').val();
+
+
     $.ajax({
-        url: '/api.php',
-        type: id ? 'PUT' : 'POST',
-        data: data,
-        success: function (response) {
-            console.log(response);
-            location.reload();
+        url: './api.php',
+        type: 'POST',
+        data: {
+            nombre: nombre_usuario,
+            email: email,
+            genero: genero,
+            contrasena: contrasena
         },
-        error: function (error) {
-            console.log(error);
+        success: function (response) {
+            location.reload();
+            alert("Usuario creado exitosamente");
+            alert(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+            alert('Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo.');
         }
     });
 });
