@@ -17,22 +17,32 @@ if (!isset($_SESSION['login_user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios registrados</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
 </head>
 
-<body>
-    <header>
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="logo de google">
+<body class="body-index">
+    <header class="header-index">
+        <div class="div-header-index">
+            <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Agregar nuevo contacto</button>
+        </div>
+        <div class="div-header-index">
+            <img src="ElementosSitioiStrategy/LOGO-iSTRATEGY-.png" alt="Logo" class="img-logo-index">
+        </div>
     </header>
-    <main>
 
+    <main class="container-table-users">
+        <aside class="aside-index">
+
+        </aside>
         <table id="tablaUsuarios">
-
             <tr>
                 <th>ID</th>
                 <th>NOMBRE</th>
-                <th>CORREO ELECTRONICO</th>
+                <th>EMAIL</th>
                 <th>GENERO</th>
                 <th>FECHA DE UNION</th>
+                <th>ACCIONES</th>
             </tr>
             <tbody>
                 <?php
@@ -44,19 +54,16 @@ if (!isset($_SESSION['login_user'])) {
                             <td>{$usuario['genero']}</td>
                             <td>{$usuario['creado_en']}</td>
                             <td> 
-                             <a href='editar_usuario.php?id=<?php echo {$usuario['id']} ?>'>Editar</a>
-                             <button class='eliminar' data-id='{$usuario['id']}' id='eliminar'>Borrar</button>
+                            <a class='eliminar' data-id='{$usuario['id']}' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
                             </td>
                         </tr>";
                 }
                 ?>
             </tbody>
-
         </table>
 
     </main>
 </body>
 <script src="js/eliminar_usuario.js"></script>
-
 
 </html>

@@ -1,6 +1,13 @@
 <?php
 include 'config.php';
 
+session_start();
+if (!isset($_SESSION['login_user'])) {
+    echo "No se ha iniciado sesión";
+    header("location: form_login.php");
+    exit();
+}
+
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -47,7 +54,7 @@ $stmt = null; ?>
                 <h3>Género</h3>
             </div>
             <div>
-                <input type="radio" name="genero" id="masculino" value="masculino" >
+                <input type="radio" name="genero" id="masculino" value="masculino">
                 <label for="masculino">Masculino</label>
             </div>
             <div>

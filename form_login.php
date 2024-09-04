@@ -11,7 +11,7 @@
 
 <body class="body-form-login">
 
-    <div class="form-login">
+    <section class="form-login">
         <header class="header-form-login">
             <div class="div-form-login">
                 <img src="ElementosSitioiStrategy/LOGO-iSTRATEGY-.png" alt="Logo">
@@ -40,7 +40,7 @@
                 </div>
             </form>
         </main>
-    </div>
+    </section>
 </body>
 <script src="js/iniciar_sesion_usuario.js"></script>
 
