@@ -36,6 +36,10 @@ if (!isset($_SESSION['login_user'])) {
                 <input type="email" name="email" id="email">
             </div>
             <div>
+                <label for="numero_telefono">Numero de Telefono</label>
+                <input type="text" name="numero_telefono" id="numero_telefono">
+            </div>
+            <div>
                 <label for="contrasena">Contraseña</label>
                 <input type="password" name="contrasena" id="contrasena">
             </div>

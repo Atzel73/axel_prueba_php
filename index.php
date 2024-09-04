@@ -40,6 +40,7 @@ if (!isset($_SESSION['login_user'])) {
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>EMAIL</th>
+                <th>TELEFONO</th>
                 <th>GENERO</th>
                 <th>FECHA DE UNION</th>
                 <th>ACCIONES</th>
@@ -51,6 +52,7 @@ if (!isset($_SESSION['login_user'])) {
                             <td>{$usuario['id']}</td>
                             <td>{$usuario['nombre_usuario']}</td>
                             <td>{$usuario['email']}</td>
+                            <td>{$usuario['numero_telefono']}</td>
                             <td>{$usuario['genero']}</td>
                             <td>{$usuario['creado_en']}</td>
                             <td> 
