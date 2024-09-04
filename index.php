@@ -27,7 +27,10 @@ if (!isset($_SESSION['login_user'])) {
             <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Agregar nuevo contacto</button>
         </div>
         <div class="div-header-index">
-            <img src="ElementosSitioiStrategy/LOGO-iSTRATEGY-.png" alt="Logo" class="img-logo-index">
+            <img src="ElementosSitioiStrategy/LOGO-AVION-ROJO-iSTRATEGY.png" alt="Logo" class="img-logo-index-main">
+        </div>
+        <div class="div-header-index">
+            <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Cerrar sesion</button>
         </div>
     </header>
 
@@ -40,7 +43,6 @@ if (!isset($_SESSION['login_user'])) {
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>EMAIL</th>
-                <th>TELEFONO</th>
                 <th>GENERO</th>
                 <th>FECHA DE UNION</th>
                 <th>ACCIONES</th>
@@ -52,7 +54,6 @@ if (!isset($_SESSION['login_user'])) {
                             <td>{$usuario['id']}</td>
                             <td>{$usuario['nombre_usuario']}</td>
                             <td>{$usuario['email']}</td>
-                            <td>{$usuario['numero_telefono']}</td>
                             <td>{$usuario['genero']}</td>
                             <td>{$usuario['creado_en']}</td>
                             <td> 
