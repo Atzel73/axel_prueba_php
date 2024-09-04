@@ -31,10 +31,10 @@
                     <label for="contrasena" class="names">Contraseña</label>
                     <input type="password" name="contrasena" id="contrasena" passwoolder="Introduzca Contraseña">
                 </div>
-                <div class="div-form-checkbox">
+                <!-- <div class="div-form-checkbox">
                     <input type="checkbox" name="recordar" id="recordar">
                     <label for="recordar" class="names">Mantenerme Conectado</label>
-                </div>
+                </div> -->
                 <div class="div-form-submit">
                     <input type="submit" value="Iniciar Sesión">
                 </div>

@@ -15,7 +15,6 @@ $(document).ready(function () {
                     alert("Inicio de sesión exitoso");
                     window.location.href = "index.php";
                 } else {
-                    //alert(response.message);
                     alert("Usuario o contraseña incorrectos.");
                 }
             },

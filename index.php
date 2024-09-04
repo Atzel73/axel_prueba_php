@@ -1,14 +1,16 @@
-<!-- Si hay usuario: muestra lista de usuarios/ sino, muestra el inicio de sesion -->
 <?php
 include 'config.php';
-$sql = "SELECT * FROM usuarios";
-$result = $conn->query($sql);
 session_start();
+
 if (!isset($_SESSION['login_user'])) {
     header("location: form_login.php");
     exit();
 }
+
+$sql = "SELECT * FROM usuarios";
+$result = $conn->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,26 +20,26 @@ if (!isset($_SESSION['login_user'])) {
     <title>Usuarios registrados</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body class="body-index">
     <header class="header-index">
         <div class="div-header-index">
-            <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Agregar nuevo contacto</button>
+            <?php if (isset($_SESSION['login_user'])) : ?>
+                <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Agregar nuevo contacto</button>
+            <?php endif; ?>
         </div>
         <div class="div-header-index">
             <img src="ElementosSitioiStrategy/LOGO-AVION-ROJO-iSTRATEGY.png" alt="Logo" class="img-logo-index-main">
         </div>
         <div class="div-header-index">
-            <button class="header-index-button" onclick="location.href='form_agregar_usuario.php'">Cerrar sesion</button>
+            <form action="script_cerrar_sesion.php" method="POST">
+                <button class="header-index-button" type="submit">Cerrar sesión</button>
+            </form>
         </div>
     </header>
 
     <main class="container-table-users">
-        <aside class="aside-index">
-
-        </aside>
         <table id="tablaUsuarios">
             <tr>
                 <th>ID</th>
@@ -48,25 +50,23 @@ if (!isset($_SESSION['login_user'])) {
                 <th>ACCIONES</th>
             </tr>
             <tbody>
-                <?php
-                foreach ($result as $usuario) {
-                    echo "<tr>
-                            <td>{$usuario['id']}</td>
-                            <td>{$usuario['nombre_usuario']}</td>
-                            <td>{$usuario['email']}</td>
-                            <td>{$usuario['genero']}</td>
-                            <td>{$usuario['creado_en']}</td>
-                            <td> 
-                            <a class='eliminar' data-id='{$usuario['id']}' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
-                            </td>
-                        </tr>";
-                }
-                ?>
+                <?php foreach ($result as $usuario) : ?>
+                    <tr>
+                        <td><?php echo $usuario['id']; ?></td>
+                        <td><?php echo $usuario['nombre_usuario']; ?></td>
+                        <td><?php echo $usuario['email']; ?></td>
+                        <td><?php echo $usuario['genero']; ?></td>
+                        <td><?php echo $usuario['creado_en']; ?></td>
+                        <td>
+                            <a class='eliminar' data-id='<?php echo $usuario['id']; ?>' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
-
     </main>
+
+    <script src="js/eliminar_usuario.js"></script>
 </body>
-<script src="js/eliminar_usuario.js"></script>
 
 </html>

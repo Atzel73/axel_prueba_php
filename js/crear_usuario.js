@@ -7,7 +7,10 @@ $(form).submit(function (e) {
     const genero = $('input[name="genero"]:checked').val();
     const contrasena = $('#contrasena').val();
 
-
+if (!nombre_usuario || !email || !genero || !contrasena ) {
+    alert('Por favor, completa todos los campos.');
+    return;
+}
     $.ajax({
         url: './script_registrar_usuario.php',
         type: 'POST',
