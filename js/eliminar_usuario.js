@@ -9,7 +9,7 @@ $(document).on('click', '.eliminar', function () {
         },
         success: function (response) {
             location.reload();
-            alertalert("Usuario eliminado exitosamente");
+            alert("Usuario eliminado exitosamente");
         },
         error: function (xhr, status, error) {
             console.log("Error: " + error);
