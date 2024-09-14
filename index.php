@@ -62,7 +62,7 @@ $result = $conn->query($sql);
                             <td><?php echo $usuario['creado_en']; ?></td>
                             <td class="td-actions">
                                 <a class='eliminar' data-id='<?php echo $usuario['id']; ?>' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
-                                <a href="editar_usuario.php?id=<?php echo $usuario['id'] ?>" class='editar' id='editar'><img src='ElementosSitioiStrategy/icono pluma-8.png' alt='lapiz' class='icono-borrar'></a>
+                                <a href="form_editar_usuario.php?id=<?php echo $usuario['id'] ?>" class='editar' id='editar'><img src='ElementosSitioiStrategy/icono pluma-8.png' alt='lapiz' class='icono-borrar'></a>
                             </td>
                         </tr>
                     <?php

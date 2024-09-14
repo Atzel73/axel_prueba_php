@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </ul>
             <?php endif; ?>
 
-            <form id="formUser" class="form-agregar-usuario" action="editar_usuario.php?id=<?php echo $id ?>" method="POST">
+            <form id="formUser" class="form-agregar-usuario" action="form_editar_usuario.php?id=<?php echo $id ?>" method="POST">
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <section class="form-icon-input">
