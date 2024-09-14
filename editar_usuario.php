@@ -7,27 +7,46 @@ if (!isset($_SESSION['login_user'])) {
     header("location: form_login.php");
     exit();
 }
+$id = $_GET['id'];
+$nombre_usuario = "";
+$email  = "";
+$genero = "";
+$errors = [];
 
+$sql = "SELECT * FROM usuarios WHERE id=$id";
+$result = $conn->query($sql);
+$user = $result->fetch(PDO::FETCH_ASSOC);
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["nombre_usuario"])) {
+        $errors[] = "El nombre es obligatorio.";
+    } else {
+        $nombre_usuario = $_POST["nombre_usuario"];
+    }
 
+    if (empty($_POST["email"])) {
+        $errors[] = "El email es obligatorio.";
+    } else {
+        $email = $_POST["email"];
+    }
 
-$sql = "SELECT * FROM `usuarios` WHERE id = 9";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(1, $id, PDO::PARAM_INT);
-$stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (empty($_POST["genero"])) {
+        $errors[] = "El genero es obligatorio.";
+    } else {
+        $genero = $_POST["genero"];
+    }
 
-
-if (count($result) > 0) {
-    $task = $result[0];
-} else {
-    echo "Usuario no encontrado";
-    exit;
+    if (empty($errors)) {
+        $sql = "UPDATE usuarios SET nombre_usuario='$nombre_usuario', email='$email' WHERE id=$id";
+        if ($conn->query($sql)) {
+            echo "usuario editado";
+            header("Location: index.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->errorCode();
+        }
+    }
 }
-
-
-$stmt = null; ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,36 +56,68 @@ $stmt = null; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar usuario</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <main>
-        <form id="formUser">
-            <div>
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($task['nombre_usuario']); ?>">
-            </div>
-            <div>
-                <label for="email">Correo Electronico</label>
-                <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($task['email']); ?>">
-            </div>
-            <div>
-                <h3>Género</h3>
-            </div>
-            <div>
-                <input type="radio" name="genero" id="masculino" value="masculino">
-                <label for="masculino">Masculino</label>
-            </div>
-            <div>
-                <input type="radio" name="genero" id="femenino" value="femenino">
-                <label for="femenino">Femenino</label>
-            </div>
-            <div>
-                <button type="submit">Guardar</button>
-            </div>
+<body class="body-agregar-usuario">
 
-        </form>
+    <main class="main-agregar-usuario">
+        <aside class="social-links">
+            <a href="https://facebook.com/istrategy" target="_blank"><img src="ElementosSitioiStrategy/redes 1.png" class="img-logo-index"></a>
+            <a href="#" target="_blank"><img src="ElementosSitioiStrategy/redes 2.png" class="img-logo-index"></a>
+            <a href="#" target="_blank"><img src="ElementosSitioiStrategy/redes 3.png" class="img-logo-index"></a>
+        </aside>
+        <section class="flotante">
+            <?php if (!empty($errors)): ?>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?php echo $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+
+            <form id="formUser" class="form-agregar-usuario" action="editar_usuario.php?id=<?php echo $id ?>" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <section class="form-icon-input">
+                        <img src="ElementosSitioiStrategy/ICONO 1.PNG" alt="Logo" class="img-logo-index">
+                        <input type="text" name="nombre_usuario" id="nombre_usuario" class="form-input" value="<?php echo $user['nombre_usuario']; ?>">
+                    </section>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <section class="form-icon-input">
+                        <img src="ElementosSitioiStrategy/ICONO 2.PNG" alt="Logo" class="img-logo-index">
+                        <input type="email" name="email" id="email" class="form-input" value="<?php echo $user['email']; ?>">
+                    </section>
+                </div>
+
+                <!-- Género -->
+                <div class="form-group">
+                    <h3>Género</h3>
+                </div>
+                <div class="form-group radio-group">
+                    <input type="radio" name="genero" id="masculino" value="masculino" class="form-radio" <?php if ($user['genero'] == 'masculino') echo 'checked'; ?>>
+                    <label for="masculino">Masculino</label>
+                </div>
+                <div class="form-group radio-group">
+                    <input type="radio" name="genero" id="femenino" value="femenino" class="form-radio" <?php if ($user['genero'] == 'femenino') echo 'checked'; ?>>
+                    <label for="femenino">Femenino</label>
+                </div>
+
+                <!-- Botón para guardar los cambios -->
+                <div class="form-group">
+                    <button type="submit" class="form-submit">Guardar</button>
+                </div>
+            </form>
+
+
+            <figure>
+                <img src="ElementosSitioiStrategy/foto.jpg" alt="Imagen representativa" class="flotante-img">
+            </figure>
+        </section>
     </main>
+
 </body>
 
 </html>

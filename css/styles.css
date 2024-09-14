@@ -210,6 +210,15 @@ td {
   cursor: pointer;
 }
 
+.icono-editar {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.td-actions{
+  display: flex;
+  justify-content: space-between;
+}
 /* Estilos para el formulario de registro form_agregar_usuario.php*/
 
 .body-agregar-usuario {

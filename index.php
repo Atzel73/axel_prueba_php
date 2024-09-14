@@ -50,18 +50,29 @@ $result = $conn->query($sql);
                 <th>ACCIONES</th>
             </tr>
             <tbody>
-                <?php foreach ($result as $usuario) : ?>
+                <?php if ($result && $result->rowCount() > 0): ?>
+                    <?php
+                    while ($usuario = $result->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $usuario['id']; ?></td>
+                            <td><?php echo $usuario['nombre_usuario']; ?></td>
+                            <td><?php echo $usuario['email']; ?></td>
+                            <td><?php echo $usuario['genero']; ?></td>
+                            <td><?php echo $usuario['creado_en']; ?></td>
+                            <td class="td-actions">
+                                <a class='eliminar' data-id='<?php echo $usuario['id']; ?>' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
+                                <a href="editar_usuario.php?id=<?php echo $usuario['id'] ?>" class='editar' id='editar'><img src='ElementosSitioiStrategy/icono pluma-8.png' alt='lapiz' class='icono-borrar'></a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                <?php else: ?>
                     <tr>
-                        <td><?php echo $usuario['id']; ?></td>
-                        <td><?php echo $usuario['nombre_usuario']; ?></td>
-                        <td><?php echo $usuario['email']; ?></td>
-                        <td><?php echo $usuario['genero']; ?></td>
-                        <td><?php echo $usuario['creado_en']; ?></td>
-                        <td>
-                            <a class='eliminar' data-id='<?php echo $usuario['id']; ?>' id='eliminar'><img src='ElementosSitioiStrategy/icono basura-8.png' alt='basura' class='icono-borrar'></a>
-                        </td>
+                        <td colspan="6"> No hay usuarios registrados</td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </main>
