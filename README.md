@@ -1,9 +1,9 @@
 
 # Prueba Gestion de usuarios
 
-Este repositorio contiene una aplicación básica desarrollada en PHP y JavaScript para gestionar usuarios mediante operaciones CRUD. La aplicación utiliza AJAX para mejorar la experiencia dinámica del usuario y reflejar cambios sin recargar la página.
+Este repositorio contiene una web básica desarrollada en PHP y JavaScript para gestionar usuarios mediante operaciones CRUD. La aplicación utiliza AJAX para mejorar la experiencia dinámica del usuario y reflejar cambios sin recargar la página.
 
-# Stack tecnico usado
+# Stack tecnico 
 ```
    - PHP
 
