@@ -19,7 +19,7 @@ Este repositorio contiene una web básica desarrollada en PHP y JavaScript para 
   
    - config.php. Contiene la conexion a la base de datos.
 
-   - index.php. Pagina pricipal,¡; aqui se ven los usuarios registrados. 
+   - index.php. Pagina pricipal, aqui se ven los usuarios registrados. 
 
    - form_agregar_usuario.php: Formulario para agregar nuevos usuarios.
 
