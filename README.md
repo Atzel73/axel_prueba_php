@@ -15,7 +15,7 @@ Este repositorio contiene una web básica desarrollada en PHP y JavaScript para 
    ```
 # Estructura del proyecto
  ```
-   -   js/: Contiene los scripts JavaScript para gestionar las interacciones del usuario utilizando AJAX.
+   - js/: Contiene los scripts JavaScript para gestionar las interacciones del usuario utilizando AJAX.
   
    - config.php. Contiene la conexion a la base de datos.
 
