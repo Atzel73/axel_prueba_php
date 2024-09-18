@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['login_user'])) {
-    echo "No se ha iniciado sesión";
-    header("location: form_login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +66,7 @@ if (!isset($_SESSION['login_user'])) {
             </form>
             <figure>
                 <img src="ElementosSitioiStrategy/foto.jpg" alt="Imagen representativa" class="flotante-img">
-               
+
             </figure>
         </section>
     </main>

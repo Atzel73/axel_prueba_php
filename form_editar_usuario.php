@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($errors)) {
-        $sql = "UPDATE usuarios SET nombre_usuario='$nombre_usuario', email='$email' WHERE id=$id";
+        $sql = "UPDATE usuarios SET nombre_usuario='$nombre_usuario', email='$email', genero='$genero' WHERE id=$id";
         if ($conn->query($sql)) {
             echo "usuario editado";
             header("Location: index.php");
