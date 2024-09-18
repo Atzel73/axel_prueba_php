@@ -12,9 +12,10 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (response) {
                 if (response.status === "success") {
+                    alert("Inicio de sesión exitoso");
                     window.location.href = "index.php";
                 } else {
-                    alert(response.message);
+                    alert("Usuario o contraseña incorrectos.");
                 }
             },
             error: function (xhr, status, error) {
